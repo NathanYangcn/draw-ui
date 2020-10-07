@@ -56,12 +56,8 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-// 定义 media
-@mixin phone {
-  @media (max-width: 500px) {
-    @content;
-  }
-}
+@import '../styles/media.scss';
+
 // 默认 PC
 .aside {
   position: fixed;
@@ -76,6 +72,7 @@ export default {
 .main {
   padding: 60px 0 0 240px;
 }
+
 // media phone
 @include phone {
   .main {

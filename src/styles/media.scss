@@ -1,0 +1,6 @@
+// 定义 media
+@mixin phone {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
