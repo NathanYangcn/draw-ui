@@ -2,8 +2,14 @@
   <div class="doc">
     <Topnav />
     <div class="content">
-      <div class="aside">侧边栏</div>
-      <div class="main">主内容</div>
+      <aside class="aside">
+        <ul>
+          <li v-for="item in 50" :key="item">侧边栏</li>
+        </ul>
+      </aside>
+      <main class="main">
+        <div v-for="item in 50" :key="item">主内容</div>
+      </main>
     </div>
   </div>
 </template>
@@ -17,3 +23,18 @@ export default {
   }
 }
 </script>
+
+<style lang='scss' scoped>
+.aside {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 230px;
+  border-right: 1px solid #bbb;
+  overflow: auto;
+}
+.main {
+  padding: 60px 0 0 240px;
+}
+</style>

@@ -12,6 +12,7 @@
   bottom: 0;
   right: 0;
   left: 0;
+  background: #fff;
   &-inner {
     box-sizing: border-box;
     display: flex;
