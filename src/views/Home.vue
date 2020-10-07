@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <div class="topnav">
-      <div class="logo">draw ui</div>
-    </div>
+    <Topnav />
     <div class="content">
       <h1 class="title">draw ui</h1>
       <h2 class="brief">draw ui description</h2>
@@ -16,3 +14,13 @@
     </div>
   </div>
 </template>
+
+<script>
+import Topnav from '../components/Topnav.vue'
+
+export default {
+  components: {
+    Topnav
+  }
+}
+</script>
