@@ -8,9 +8,6 @@
         </ul>
       </aside>
       <main class="main">
-        <div style="text-align: right;">
-          <button @click="toggle">{{ asideVisible ? '关闭aside' : '开启aside' }}</button>
-        </div>
         <div v-for="item in 50" :key="item">主内容</div>
       </main>
     </div>
@@ -18,6 +15,7 @@
 </template>
 
 <script>
+import { inject, onMounted, onBeforeUnmount } from 'vue'
 import Topnav from '../components/Topnav.vue'
 const deviceScreenWidthLimit = 500
 
@@ -25,32 +23,27 @@ export default {
   components: {
     Topnav
   },
-  data () {
-    return {
-      asideVisible: false
-    }
-  },
-  created () {
-    this.initAsideVisible()
-  },
-  mounted () {
-    window.addEventListener('resize', this.screenResized, true)
-  },
-  // 生命周期名称变更 beforeDestroy => beforeUnmount
-  beforeUnmount () {
-    window.removeEventListener('resize', this.screenResized, true)
-  },
-  methods: {
-    initAsideVisible () {
+  setup () {
+    let asideVisible = inject('asideVisible') // inject ≈ vue.get()
+    const initAsideVisible = () => {
       const docPageScreenWidth = document.documentElement.clientWidth;
-      this.asideVisible = docPageScreenWidth <= deviceScreenWidthLimit ? false : true
-    },
-    toggle () {
-      this.asideVisible = !this.asideVisible
-    },
-    screenResized () {
-      this.initAsideVisible()
+      asideVisible.value = docPageScreenWidth <= deviceScreenWidthLimit ? false : true
     }
+    const screenResized = () => {
+      initAsideVisible()
+    }
+    // 生命周期使用前先引入 import
+    onMounted(() => {
+      window.addEventListener('resize', screenResized, true)
+    })
+    // 生命周期名称变更 beforeDestroy => beforeUnmount
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', screenResized, true)
+    })
+
+    initAsideVisible()
+    
+    return { asideVisible }
   }
 }
 </script>

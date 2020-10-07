@@ -3,7 +3,13 @@
 </template>
 
 <script>
+import { provide, ref } from 'vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  setup () {
+    const asideVisible = ref(true) // ref() 创建一个响应式对象，通过 .value 获取该值
+    provide('asideVisible', asideVisible) // provide ≈ vue.set()
+  }
 }
 </script>
