@@ -17,6 +17,7 @@
 <script>
 import { inject, onMounted, onBeforeUnmount } from 'vue'
 import Topnav from '../components/Topnav.vue'
+import { debounce } from '../utils'
 const deviceScreenWidthLimit = 500
 
 export default {
@@ -26,8 +27,11 @@ export default {
   setup () {
     let asideVisible = inject('asideVisible') // inject ≈ vue.get()
     const initAsideVisible = () => {
-      const docPageScreenWidth = document.documentElement.clientWidth;
-      asideVisible.value = docPageScreenWidth <= deviceScreenWidthLimit ? false : true
+      // 防抖函数
+      debounce(() => {
+        const docPageScreenWidth = document.documentElement.clientWidth;
+        asideVisible.value = docPageScreenWidth <= deviceScreenWidthLimit ? false : true
+      }, 250)()
     }
     const screenResized = () => {
       initAsideVisible()
