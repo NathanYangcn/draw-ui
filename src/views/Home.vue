@@ -9,18 +9,18 @@
         <a>doc</a>
       </p>
     </div>
-    <div class="footer">
-      <div class="copyright">Copyright</div>
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Topnav from '../components/Topnav.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
   components: {
-    Topnav
+    Topnav,
+    Footer
   }
 }
 </script>
