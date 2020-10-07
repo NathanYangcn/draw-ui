@@ -19,6 +19,7 @@
 
 <script>
 import Topnav from '../components/Topnav.vue'
+const deviceScreenWidthLimit = 500
 
 export default {
   components: {
@@ -29,9 +30,26 @@ export default {
       asideVisible: false
     }
   },
+  created () {
+    this.initAsideVisible()
+  },
+  mounted () {
+    window.addEventListener('resize', this.screenResized, true)
+  },
+  // 生命周期名称变更 beforeDestroy => beforeUnmount
+  beforeUnmount () {
+    window.removeEventListener('resize', this.screenResized, true)
+  },
   methods: {
+    initAsideVisible () {
+      const docPageScreenWidth = document.documentElement.clientWidth;
+      this.asideVisible = docPageScreenWidth <= deviceScreenWidthLimit ? false : true
+    },
     toggle () {
       this.asideVisible = !this.asideVisible
+    },
+    screenResized () {
+      this.initAsideVisible()
     }
   }
 }
