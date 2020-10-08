@@ -8,7 +8,7 @@ import { provide, ref } from 'vue'
 export default {
   name: 'App',
   setup () {
-    const asideVisible = ref(true) // ref() 创建一个响应式对象，通过 .value 获取该值
+    const asideVisible = ref(false) // ref() 创建一个响应式对象，通过 .value 获取该值
     provide('asideVisible', asideVisible) // provide ≈ vue.set()
   }
 }
