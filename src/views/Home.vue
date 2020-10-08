@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import Topnav from '../components/Topnav.vue'
 import Footer from '../components/Footer.vue'
 

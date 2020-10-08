@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import Topnav from '../components/Topnav.vue'
 import AsideBar from '../components/AsideBar.vue'
 

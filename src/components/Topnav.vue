@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script>
-import { inject } from 'vue'
+<script lang='ts'>
+import { inject, Ref } from 'vue'
 
 export default {
   props: {
@@ -25,7 +25,7 @@ export default {
     }
   },
   setup () {
-    let asideVisible = inject('asideVisible') // inject ≈ vue.get()
+    let asideVisible = inject<Ref<boolean>>('asideVisible') // inject ≈ vue.get()
     const toggleAsideVisible = () => {
       asideVisible.value = !asideVisible.value
     }

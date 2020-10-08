@@ -6,13 +6,13 @@
   </aside>
 </template>
 
-<script>
-import { inject, onMounted, onBeforeUnmount } from 'vue'
+<script lang='ts'>
+import { inject, onMounted, onBeforeUnmount, Ref } from 'vue'
 import { debounce } from '../utils'
 const deviceScreenWidthLimit = 500
 export default {
   setup () {
-    let asideVisible = inject('asideVisible') // inject ≈ vue.get()
+    let asideVisible = inject<Ref<boolean>>('asideVisible') // inject ≈ vue.get()
     const initAsideVisible = () => {
       // 防抖函数
       debounce(() => {
