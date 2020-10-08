@@ -1,7 +1,7 @@
 // 防抖函数
-export function debounce (fn, time) {
+export function debounce (fn:Function, time:number) {
   // 记录上一次的延时器
-  let timer = null
+  let timer:any = null
   const delay = time || 200
   return function () {
     const args = arguments
