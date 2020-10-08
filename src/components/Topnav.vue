@@ -1,8 +1,10 @@
 <template>
   <div class="topnav">
     <div class="topnav-inner">
-      <div class="toggle-aside" @click="toggleAsideVisible">三</div>
-      <div class="logo">draw ui</div>
+      <div class="toggle-aside" v-if="showToggleAside" @click="toggleAsideVisible">三</div>
+      <div class="logo">
+        <router-link to="/">draw ui</router-link>
+      </div>
       <div class="actions">
         <router-link to='/'>Home</router-link>
         |
@@ -16,6 +18,12 @@
 import { inject } from 'vue'
 
 export default {
+  props: {
+    showToggleAside: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup () {
     let asideVisible = inject('asideVisible') // inject ≈ vue.get()
     const toggleAsideVisible = () => {

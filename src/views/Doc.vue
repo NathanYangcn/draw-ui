@@ -1,6 +1,6 @@
 <template>
   <div class="doc">
-    <Topnav />
+    <Topnav showToggleAside />
     <div class="content">
       <AsideBar />
       <main class="main">
