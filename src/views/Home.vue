@@ -29,8 +29,8 @@ export default {
 .home {
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  padding-top: 25%;
   a + a {
     margin-left: 20px;
   }
