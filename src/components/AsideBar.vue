@@ -1,7 +1,7 @@
 <template>
   <aside class="aside" v-if="asideVisible">
     <ul>
-      <li v-for="item in 50" :key="item">侧边栏</li>
+      <li>侧边栏</li>
     </ul>
   </aside>
 </template>

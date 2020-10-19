@@ -4,7 +4,7 @@
     <div class="content">
       <AsideBar />
       <main class="main">
-        <div v-for="item in 50" :key="item">主内容</div>
+        <div>主内容</div>
       </main>
     </div>
   </div>
